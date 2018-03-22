@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin developers.
+// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #ifndef COMMON_H
@@ -9,7 +9,7 @@
 
 class QUrl;
 
-constexpr const char* CURRENCY_TICKER = "BCN";
+constexpr const char* CURRENCY_TICKER = "BTR";
 constexpr const uint64_t MAXIMUM_UNSYNCED_BLOCKS_WHEN_SEND_AVAILABLE = 5;
 constexpr const uint64_t COIN = 100000000;
 constexpr const uint32_t CONFIRMATIONS = 3;

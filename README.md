@@ -1,4 +1,4 @@
-# bytecoin-gui
+# byterub-gui
 
 ## Requirements
 
@@ -20,15 +20,15 @@ TODO
 
 ### Linux
 ```
-$ git clone https://github.com/bcndev/bytecoin.git
-$ cd bytecoin
+$ git clone https://github.com/btrdev/byterub.git
+$ cd byterub
 $ mkdir -p build
 $ cd build
 $ cmake ..
-$ make -j4 bytecoin-crypto
+$ make -j4 byterub-crypto
 $ cd ../..
-$ git clone https://github.com/bcndev/bytecoin-gui.git
-$ cd bytecoin-gui
+$ git clone https://github.com/btrdev/byterub-gui.git
+$ cd byterub-gui
 $ mkdir -p build
 $ cd build
 $ cmake ..

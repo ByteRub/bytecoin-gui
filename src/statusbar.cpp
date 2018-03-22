@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin developers.
+// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #include <QDataWidgetMapper>
@@ -92,7 +92,7 @@ WalletStatusBar::WalletStatusBar(QWidget* parent)
 //    , m_encryptionStatusIconLabel(new QLabel(this))
     , m_peerCountLabel(new QLabel(this))
     , m_walletConnectionLabel(new QLabel(this))
-    , m_bytecoindConnectionLabel(new QLabel(this))
+    , m_byterubdConnectionLabel(new QLabel(this))
     , m_syncMovie(new QMovie(this))
     , stateMapper_(new QDataWidgetMapper(this))
     , isSynchronized_(false)
@@ -107,7 +107,7 @@ WalletStatusBar::WalletStatusBar(QWidget* parent)
     addWidget(m_syncStatusLabel);
     addPermanentWidget(m_peerCountLabel);
     addPermanentWidget(m_walletConnectionLabel);
-    addPermanentWidget(m_bytecoindConnectionLabel);
+    addPermanentWidget(m_byterubdConnectionLabel);
 //    addPermanentWidget(m_encryptionStatusIconLabel);
     addPermanentWidget(m_syncStatusIconLabel);
 
@@ -128,7 +128,7 @@ void WalletStatusBar::setWalletModel(WalletModel* model)
     stateMapper_->setModel(walletModel_); // clears all previously set mappings
     stateMapper_->addMapping(m_peerCountLabel, WalletModel::COLUMN_PEER_COUNT_SUM, "text");
     stateMapper_->addMapping(m_walletConnectionLabel, WalletModel::COLUMN_STATE, "text");
-    stateMapper_->addMapping(m_bytecoindConnectionLabel, WalletModel::COLUMN_LOWER_LEVEL_ERROR, "text");
+    stateMapper_->addMapping(m_byterubdConnectionLabel, WalletModel::COLUMN_LOWER_LEVEL_ERROR, "text");
     stateMapper_->toFirst();
     connect(walletModel_, &QAbstractItemModel::modelReset, stateMapper_, &QDataWidgetMapper::toFirst);
     connect(walletModel_, &QAbstractItemModel::dataChanged, this, &WalletStatusBar::nodeStateChanged);
