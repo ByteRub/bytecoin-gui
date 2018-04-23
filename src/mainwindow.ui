@@ -30,7 +30,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>:/images/byterub</normaloff>:/images/byterub</iconset>
+    <normaloff>:/images/bytecoin</normaloff>:/images/bytecoin</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -681,7 +681,7 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="m_communityForumAction"/>
-    <addaction name="m_aboutByterubAction"/>
+    <addaction name="m_aboutBytecoinAction"/>
     <addaction name="m_aboutQtAction"/>
    </widget>
    <widget class="QMenu" name="menuTools">
@@ -727,12 +727,12 @@
     <string>&amp;Open wallet</string>
    </property>
   </action>
-  <action name="m_aboutByterubAction">
+  <action name="m_aboutBytecoinAction">
    <property name="enabled">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;About Byterub</string>
+    <string>&amp;About Bytecoin</string>
    </property>
   </action>
   <action name="m_aboutQtAction">
@@ -870,7 +870,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>m_aboutByterubAction</sender>
+   <sender>m_aboutBytecoinAction</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>about()</slot>

@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
+// Copyright (c) 2015-2018, The Bytecoin developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #include <QClipboard>
@@ -203,7 +203,7 @@ void TransferFrame::setAmountFormatError(bool error)
                 &TransferFrame::validateAmount, Qt::UniqueConnection);
     }
     else
-        m_ui->m_amountTextLabel->setText(tr("Amount (BTR)"));
+        m_ui->m_amountTextLabel->setText(tr("Amount (BCN)"));
 
     m_ui->m_sendAmountSpin->style()->unpolish(m_ui->m_sendAmountSpin);
     m_ui->m_sendAmountSpin->style()->polish(m_ui->m_sendAmountSpin);
@@ -225,7 +225,7 @@ void TransferFrame::setInsufficientFundsError(bool error)
                 &TransferFrame::validateAmount, Qt::UniqueConnection);
     }
     else
-        m_ui->m_amountTextLabel->setText(tr("Amount (BTR)"));
+        m_ui->m_amountTextLabel->setText(tr("Amount (BCN)"));
 
     m_ui->m_sendAmountSpin->style()->unpolish(m_ui->m_sendAmountSpin);
     m_ui->m_sendAmountSpin->style()->polish(m_ui->m_sendAmountSpin);
@@ -247,7 +247,7 @@ void TransferFrame::setBigTransactionError(bool error)
                 &TransferFrame::validateAmount, Qt::UniqueConnection);
     }
     else
-        m_ui->m_amountTextLabel->setText(tr("Amount (BTR)"));
+        m_ui->m_amountTextLabel->setText(tr("Amount (BCN)"));
 
     m_ui->m_sendAmountSpin->style()->unpolish(m_ui->m_sendAmountSpin);
     m_ui->m_sendAmountSpin->style()->polish(m_ui->m_sendAmountSpin);

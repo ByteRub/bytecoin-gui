@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
+// Copyright (c) 2015-2018, The Bytecoin developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #include <cstring>
@@ -42,9 +42,9 @@ namespace WalletGUI {
 namespace {
 
 //const int MAX_RECENT_WALLET_COUNT = 10;
-//const char COMMUNITY_FORUM_URL[] = "https://byterubtalk.org";
-const char COMMUNITY_FORUM_URL[] = "https://byterub.org";
-const char REPORT_ISSUE_URL[] = "https://byterub.org/contact";
+//const char COMMUNITY_FORUM_URL[] = "https://bytecointalk.org";
+const char COMMUNITY_FORUM_URL[] = "https://bytecoin.org";
+const char REPORT_ISSUE_URL[] = "https://bytecoin.org/contact";
 
 const char BUTTON_STYLE_SHEET[] =
         "QPushButton {border: none;}"
@@ -71,7 +71,7 @@ MainWindow::MainWindow(
     m_ui->setupUi(this);
 
     setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, this->size(), qApp->desktop()->availableGeometry()));
-    setWindowIcon(QIcon(":images/byterub_lin"));
+    setWindowIcon(QIcon(":images/bytecoin_lin"));
     clearTitle();
 
     m_ui->m_overviewButton->setStyleSheet(BUTTON_STYLE_SHEET);
@@ -188,10 +188,10 @@ void MainWindow::showSendConfirmation(const RpcApi::CreatedTx& tx)
         }
         const QString& amountStr = formatAmount(tf.amount);
         const QString& addressStr = tf.address;
-        msg.append(tr("%1 BTR to %2\n").arg(amountStr).arg(addressStr));
+        msg.append(tr("%1 BCN to %2\n").arg(amountStr).arg(addressStr));
     }
-    msg.append(tr("Fee: %1 BTR\n").arg(formatAmount(tx.transaction.fee)));
-    msg.append(tr("Total send: %1 BTR").arg(formatAmount(-ourAmount)));
+    msg.append(tr("Fee: %1 BCN\n").arg(formatAmount(tx.transaction.fee)));
+    msg.append(tr("Total send: %1 BCN").arg(formatAmount(-ourAmount)));
 
     SendConfirmationDialog dlg(
                 tr("Confirm send coins"),

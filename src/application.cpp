@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
+// Copyright (c) 2015-2018, The Bytecoin developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #include <QFontDatabase>
@@ -43,8 +43,8 @@ WalletApplication::WalletApplication(int& argc, char** argv)
     , crashDialog_(new CrashDialog())
     , m_isAboutToQuit(false)
 {
-    setApplicationName("byterub"); // do not change becasuse it also changes data directory under Mac and Win
-    setApplicationDisplayName(tr("Byterub Wallet"));
+    setApplicationName("bytecoin"); // do not change becasuse it also changes data directory under Mac and Win
+    setApplicationDisplayName(tr("Bytecoin Wallet"));
     setApplicationVersion("2.0.0");
     setQuitOnLastWindowClosed(false);
     QLocale::setDefault(QLocale::c());
@@ -84,13 +84,13 @@ bool WalletApplication::init()
     makeDataDir(logsDir);
     WalletLogger::init(logsDir, true, this);
     WalletLogger::info(tr("[Application] Initializing..."));
-    QString path = dataDir.absoluteFilePath("byterub-gui.lock");
+    QString path = dataDir.absoluteFilePath("bytecoin-gui.lock");
     m_lockFile.reset(new QLockFile(path));
 
     if (!m_lockFile->tryLock())
     {
-        WalletLogger::warning(tr("[Application] Byterub wallet GUI already running"));
-        QMessageBox::warning(nullptr, QObject::tr("Fail"), tr("Byterub wallet GUI already running"));
+        WalletLogger::warning(tr("[Application] Bytecoin wallet GUI already running"));
+        QMessageBox::warning(nullptr, QObject::tr("Fail"), tr("Bytecoin wallet GUI already running"));
         return false;
     }
 
@@ -172,7 +172,7 @@ void WalletApplication::makeDataDir(const QDir& dataDir)
 void WalletApplication::initSystemTrayIcon()
 {
     connect(m_systemTrayIcon, &QSystemTrayIcon::activated, this, &WalletApplication::trayActivated);
-    m_systemTrayIcon->setIcon(QIcon(":images/byterub_lin"));
+    m_systemTrayIcon->setIcon(QIcon(":images/bytecoin_lin"));
     m_systemTrayIcon->show();
 }
 
@@ -306,14 +306,14 @@ void WalletApplication::disconnectedFromWalletd()
 
 void WalletApplication::detached()
 {
-    splashMsg(tr("Byterub GUI is in detached state.\nYou can open a wallet file, create a new one, or connect to remote walletd daemon."));
+    splashMsg(tr("Bytecoin GUI is in detached state.\nYou can open a wallet file, create a new one, or connect to remote walletd daemon."));
     if (m_mainWindow)
         m_mainWindow->setDisconnectedState();
 }
 
 void WalletApplication::firstRun()
 {
-    splashMsg(tr("Looks like this is your first run of the new Byterub Wallet GUI. It is in detached state now.\nYou can open a wallet file, create a new one, or connect to remote walletd daemon."));
+    splashMsg(tr("Looks like this is your first run of the new Bytecoin Wallet GUI. It is in detached state now.\nYou can open a wallet file, create a new one, or connect to remote walletd daemon."));
 }
 
 void WalletApplication::daemonErrorOccurred(QProcess::ProcessError error, QString errorString)
@@ -344,17 +344,17 @@ void WalletApplication::daemonFinished(int exitCode, QProcess::ExitStatus /*exit
     QString msg;
     switch(exitCode)
     {
-    case static_cast<int>(BuiltinWalletd::ReturnCode::BYTERUBD_DATABASE_ERROR):
+    case static_cast<int>(BuiltinWalletd::ReturnCode::BYTECOIND_DATABASE_ERROR):
         msg = tr("Database write error. Disk is full or database is corrupted.");
         break;
-    case static_cast<int>(BuiltinWalletd::ReturnCode::BYTERUBD_ALREADY_RUNNING):
-        msg = tr("Cannot run byterubd. Another instance of byterubd is running.");
+    case static_cast<int>(BuiltinWalletd::ReturnCode::BYTECOIND_ALREADY_RUNNING):
+        msg = tr("Cannot run bytecoind. Another instance of bytecoind is running.");
         break;
     case static_cast<int>(BuiltinWalletd::ReturnCode::WALLETD_BIND_PORT_IN_USE):
         msg = tr("Cannot run walletd. Walletd bind port in use.");
         break;
-    case static_cast<int>(BuiltinWalletd::ReturnCode::BYTERUBD_BIND_PORT_IN_USE):
-        msg = tr("Cannot run byterubd. Byterubd bind port in use.");
+    case static_cast<int>(BuiltinWalletd::ReturnCode::BYTECOIND_BIND_PORT_IN_USE):
+        msg = tr("Cannot run bytecoind. Bytecoind bind port in use.");
         break;
     case static_cast<int>(BuiltinWalletd::ReturnCode::WALLET_FILE_READ_ERROR):
         msg = tr("Cannot read the specified wallet file.");
@@ -370,7 +370,7 @@ void WalletApplication::daemonFinished(int exitCode, QProcess::ExitStatus /*exit
         msg = tr("Cannot write to the wallet file. Probably your file system is read only.");
         break;
     case static_cast<int>(BuiltinWalletd::ReturnCode::WALLET_FILE_EXISTS):
-        msg = tr("The specified wallet file already exists. Byterub wallet could not overwrite an existed file for safety reason. If you want to overwrite the file please remove it manually and try again.");
+        msg = tr("The specified wallet file already exists. Bytecoin wallet could not overwrite an existed file for safety reason. If you want to overwrite the file please remove it manually and try again.");
         break;
     case static_cast<int>(BuiltinWalletd::ReturnCode::WALLET_WITH_THE_SAME_VIEWKEY_IN_USE):
         msg = tr("Another walletd instance is using the specified wallet file or another wallet file with the same view key.");

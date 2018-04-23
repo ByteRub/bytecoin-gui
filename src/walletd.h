@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
+// Copyright (c) 2015-2018, The Bytecoin developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #ifndef WALLETD_H
@@ -130,10 +130,10 @@ public:
 
     enum class ReturnCode
     {
-        BYTERUBD_DATABASE_ERROR = 101, // we hope we are out of diskspace, otherwise blockchain.db is corrupted
-        BYTERUBD_ALREADY_RUNNING = 102,
+        BYTECOIND_DATABASE_ERROR = 101, // we hope we are out of diskspace, otherwise blockchain.db is corrupted
+        BYTECOIND_ALREADY_RUNNING = 102,
         WALLETD_BIND_PORT_IN_USE = 103,
-        BYTERUBD_BIND_PORT_IN_USE = 104,
+        BYTECOIND_BIND_PORT_IN_USE = 104,
         WALLET_FILE_READ_ERROR = 205,
         WALLET_FILE_UNKNOWN_VERSION = 206,
         WALLET_FILE_DECRYPT_ERROR = 207,

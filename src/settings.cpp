@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
+// Copyright (c) 2015-2018, The Bytecoin developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #include <QSettings>
@@ -35,10 +35,10 @@ constexpr char VERSION_SUFFIX[] = "stable";
 constexpr char REVISION[] = "20180320";
 
 #if defined(Q_OS_LINUX)
-constexpr char DEFAULT_WORK_DIR[] = ".byterub";
+constexpr char DEFAULT_WORK_DIR[] = ".bytecoin";
 #endif
 
-const constexpr char* DEFAULT_MINING_POOLS[] = { "pool.byterub.party:3333", "byterub.uk:3333", "byterub-pool.org:3333", "btr.pool.minergate.com:45550" };
+const constexpr char* DEFAULT_MINING_POOLS[] = { "pool.bytecoin.party:3333", "bytecoin.uk:3333", "bytecoin-pool.org:3333", "bcn.pool.minergate.com:45550" };
 
 static
 bool readJsonFile(QIODevice& device, QSettings::SettingsMap& map)
@@ -69,7 +69,7 @@ Settings::Settings()
     const QSettings::Format jsonFormat = QSettings::registerFormat("json", readJsonFile, writeJsonFile);
     QSettings::setDefaultFormat(jsonFormat);
     makeDataDir(getDefaultWorkDir());
-    const QString jsonFile = getDefaultWorkDir().absoluteFilePath("byterub-gui.config");
+    const QString jsonFile = getDefaultWorkDir().absoluteFilePath("bytecoin-gui.config");
 
     settings_.reset(new QSettings(jsonFile, jsonFormat));
 }
