@@ -8,13 +8,13 @@ QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = bytecoin-gui
+TARGET = byterub-gui
 TEMPLATE = app
 
 !win32: QMAKE_CXXFLAGS += -std=c++14 -Wall -Wextra -pedantic
 macx: QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.11
-macx: ICON = images/bytecoin.icns
-win32: RC_ICONS = images/bytecoin.ico
+macx: ICON = images/byterub.icns
+win32: RC_ICONS = images/byterub.ico
 win32: VERSION = 2.18.3.20
 
 #QMAKE_CXXFLAGS += -fno-omit-frame-pointer -fsanitize=address,undefined
@@ -22,26 +22,26 @@ win32: VERSION = 2.18.3.20
 
 CONFIG += c++14 strict_c++ no-opengl
 
-# copy walletd adjacent to bytecoin-gui binary on all 3 platforms
+# copy walletd adjacent to byterub-gui binary on all 3 platforms
 win32 {
-WALLETD_BY_SRC_PATH = $$shell_path($$clean_path("$$PWD/../../bytecoin/bin/walletd.exe"))
-BYTECOIND_BY_SRC_PATH = $$shell_path($$clean_path("$$PWD/../../bytecoin/bin/bytecoind.exe"))
+WALLETD_BY_SRC_PATH = $$shell_path($$clean_path("$$PWD/../../byterub/bin/walletd.exe"))
+BYTERUBD_BY_SRC_PATH = $$shell_path($$clean_path("$$PWD/../../byterub/bin/byterubd.exe"))
 Debug:BY_DST_PATH = $$shell_path($$clean_path("$$OUT_PWD/debug"))
 Release:BY_DST_PATH = $$shell_path($$clean_path("$$OUT_PWD/release"))
 copywalletd.commands = $(COPY_FILE) $${WALLETD_BY_SRC_PATH} $${BY_DST_PATH}
-copybytecoind.commands = $(COPY_FILE) $${BYTECOIND_BY_SRC_PATH} $${BY_DST_PATH}
+copybyterubd.commands = $(COPY_FILE) $${BYTERUBD_BY_SRC_PATH} $${BY_DST_PATH}
 }else:macx {
-copywalletd.commands += $(COPY_FILE) $$PWD/../../bytecoin/bin/walletd $$OUT_PWD/bytecoin-gui.app/Contents/MacOS
-copybytecoind.commands += $(COPY_FILE) $$PWD/../../bytecoin/bin/bytecoind $$OUT_PWD/bytecoin-gui.app/Contents/MacOS
+copywalletd.commands += $(COPY_FILE) $$PWD/../../byterub/bin/walletd $$OUT_PWD/byterub-gui.app/Contents/MacOS
+copybyterubd.commands += $(COPY_FILE) $$PWD/../../byterub/bin/byterubd $$OUT_PWD/byterub-gui.app/Contents/MacOS
 }else {
-copywalletd.commands += $(COPY_FILE) $$PWD/../../bytecoin/bin/walletd $$OUT_PWD
-copybytecoind.commands += $(COPY_FILE) $$PWD/../../bytecoin/bin/bytecoind $$OUT_PWD
+copywalletd.commands += $(COPY_FILE) $$PWD/../../byterub/bin/walletd $$OUT_PWD
+copybyterubd.commands += $(COPY_FILE) $$PWD/../../byterub/bin/byterubd $$OUT_PWD
 }
-first.depends = $(first) copywalletd copybytecoind
+first.depends = $(first) copywalletd copybyterubd
 export(first.depends)
 export(copywalletd.commands)
-export(copybytecoind.commands)
-QMAKE_EXTRA_TARGETS += first copywalletd copybytecoind
+export(copybyterubd.commands)
+QMAKE_EXTRA_TARGETS += first copywalletd copybyterubd
 
 SOURCES += main.cpp\
     mainwindow.cpp \
@@ -186,16 +186,16 @@ RESOURCES += \
     resources.qrc \
 
 
-unix|win32: LIBS += -L$$PWD/../../bytecoin/libs/ -lbytecoin-crypto
+unix|win32: LIBS += -L$$PWD/../../byterub/libs/ -lbyterub-crypto
 
-INCLUDEPATH += $$PWD/../../bytecoin/src
-DEPENDPATH += $$PWD/../../bytecoin/src
+INCLUDEPATH += $$PWD/../../byterub/src
+DEPENDPATH += $$PWD/../../byterub/src
 
-win32:!win32-g++: PRE_TARGETDEPS += $$PWD/../../bytecoin/libs/bytecoin-crypto.lib
-else:unix|win32-g++: PRE_TARGETDEPS += $$PWD/../../bytecoin/libs/libbytecoin-crypto.a
+win32:!win32-g++: PRE_TARGETDEPS += $$PWD/../../byterub/libs/byterub-crypto.lib
+else:unix|win32-g++: PRE_TARGETDEPS += $$PWD/../../byterub/libs/libbyterub-crypto.a
 
 # to add necessary dependencies,
-# 1. delete built bytecoin-gui.app to delete old dependencies (dylibs and frameworks)
+# 1. delete built byterub-gui.app to delete old dependencies (dylibs and frameworks)
 # 2. build
-# 3. run /Users/user/Qt/5.9.2/clang_64/bin/macdeployqt bytecoin-gui.app
+# 3. run /Users/user/Qt/5.9.2/clang_64/bin/macdeployqt byterub-gui.app
 # P.S. in 3, change path accroding to your Qt installation location

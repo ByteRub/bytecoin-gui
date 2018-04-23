@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin developers.
+// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #include <QClipboard>
@@ -59,7 +59,7 @@ void CheckProofDialog::proofChanged()
     const RpcApi::Proof proof = RpcApi::Proof::fromJson(json.toVariantMap());
 
     ui->messageLabel->setText(proof.message);
-    ui->amountLabel->setText(formatAmount(proof.amount) + " BCN");
+    ui->amountLabel->setText(formatAmount(proof.amount) + " BTR");
     ui->addressLabel->setText(proof.address);
     ui->txHashLabel->setText(proof.transaction_hash);
 }

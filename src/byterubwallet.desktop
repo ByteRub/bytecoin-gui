@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Byterub Wallet
+Comment=Byterub wallet
+Exec=byterubwallet %U
+Terminal=false
+Type=Application
+Icon=byterub
+MimeType=x-scheme-handler/byterub;
+Categories=Office;Finance;

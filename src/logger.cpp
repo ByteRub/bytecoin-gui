@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin developers.
+// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #include <QCoreApplication>
@@ -20,8 +20,8 @@ namespace WalletGUI {
 
 namespace {
 
-  const char OLD_LOG_FILE_NAME[] = "bytecoinwalletgui.log";
-  const char LOG_FILE_NAME[] = "bytecoin-gui.log";
+  const char OLD_LOG_FILE_NAME[] = "byterubwalletgui.log";
+  const char LOG_FILE_NAME[] = "byterub-gui.log";
 
 }
 

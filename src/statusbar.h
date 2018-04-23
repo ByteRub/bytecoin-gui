@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin developers.
+// Copyright (c) 2015-2018, The Bytecoin (Byterub) developers.
 // Licensed under the GNU Lesser General Public License. See LICENSE for details.
 
 #pragma once
@@ -31,7 +31,7 @@ private:
 //    QLabel* m_encryptionStatusIconLabel;
     QLabel* m_peerCountLabel;
     QLabel* m_walletConnectionLabel;
-    QLabel* m_bytecoindConnectionLabel;
+    QLabel* m_byterubdConnectionLabel;
     QMovie* m_syncMovie;
     QDataWidgetMapper* stateMapper_;
     bool isSynchronized_;
